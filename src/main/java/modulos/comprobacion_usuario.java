@@ -1,5 +1,6 @@
 
 package modulos;
+import controlador.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,13 +16,43 @@ public class comprobacion_usuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String user,pass,id_consulta;
-        
+        conexion cc=new conexion();
+        comprecion_datos cop=new comprecion_datos(cc.getCc());
        user=request.getParameter("user");
-        
-        
-        
-        
-        
+       pass=request.getParameter("pass");
+       id_consulta=request.getParameter("id");
+       String[][] consulta=cop.dame_datos_usuarios();
+       boolean verda=false;
+       String tipo_error="";
+       int id = 0;
+       for (int i = 0; i < consulta.length; i++) {
+            //el primer dato dela matris es el id
+            if(id_consulta.equals(consulta[i][0])){
+                //segundo dato es usuario
+                if(user.equals(consulta[i][1])){
+                    //3 dato contraseña
+                    if(pass.equals(consulta[i][2])){
+                        verda=true;
+                        id=Integer.parseInt(consulta[i][0]);
+                        break;
+                    }else{
+                        verda=false;
+                        tipo_error="error de contraseña";
+                    }
+                }else{
+                    tipo_error="usuario incorrecto";
+                    verda=false;
+                }
+            }else{
+                tipo_error="id invalido";
+                verda=false;
+            }
+        }
+       
+       if(verda){
+           cop.datos_log(1);
+           request.getRequestDispatcher("agenda.jsp").forward(request, response);
+       }else{
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -31,12 +62,22 @@ public class comprobacion_usuario extends HttpServlet {
             out.println("<title>Servlet comprobacion_usuario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet comprobacion_usuario at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Error " + tipo_error+ "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
+       }
+       
+
     }
 
+    
+    
+    
+    
+    
+    
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
