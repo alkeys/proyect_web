@@ -4,9 +4,17 @@
         <servlet-name>registro</servlet-name>
         <servlet-class>modulos.registro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>comprobacion_usuario</servlet-name>
+        <servlet-class>modulos.comprobacion_usuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registro</servlet-name>
         <url-pattern>/registro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>comprobacion_usuario</servlet-name>
+        <url-pattern>/comprobacion_usuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

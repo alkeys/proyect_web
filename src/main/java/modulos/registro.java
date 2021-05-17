@@ -29,28 +29,32 @@ public class registro extends HttpServlet {
         String Apellido = request.getParameter("Apellido");
         String direccion = request.getParameter("direccion");
         String tel= request.getParameter("tel");
+        request.setAttribute("id_us", id);
         cnp.guardar_datos_usuarios(id, user, pass, nombre, Apellido, direccion, tel);
 
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet registro</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1> se registro el usuario</h1><br>" );
-            out.print("<h1> nombre de usuario: "+user+"</h1><br>");
-            out.print("<h1>contraseña: "+pass+"</h1><br>");
-            out.print("<h1>nombre: "+nombre+"</h1><br>");
-            out.print("<h1> apellido: "+Apellido+"</h1><br>");
-            out.print("<h1> direcion: "+ direccion+"</h1><br>");
-            out.print("<h1> telefono: "+ tel+"</h1><br>");
-            out.print("<h1> id de usuario: "+id+"</h1><br>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        request.getRequestDispatcher("registor_completo.jsp").forward(request, response);
+        
+        
+        /*        try (PrintWriter out = response.getWriter()) {
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Servlet registro</title>");
+        out.println("</head>");
+        out.println("<body style=\"color:rgb(196, 10, 233);\">");
+        out.println("<h1> se registro el usuario</h1><br>" );
+        out.print("<h1> nombre de usuario: "+user+"</h1><br>");
+        out.print("<h1>contraseña: "+pass+"</h1><br>");
+        out.print("<h1>nombre: "+nombre+"</h1><br>");
+        out.print("<h1> apellido: "+Apellido+"</h1><br>");
+        out.print("<h1> direcion: "+ direccion+"</h1><br>");
+        out.print("<h1> telefono: "+ tel+"</h1><br>");
+        out.print("<h1> id de usuario: "+id+"</h1><br>");
+        out.println("</body>");
+        out.println("</html>");
+        }*/
     }
-
+    
     public int dame_id_nuevo(String[] vector) {
         //generador de ides XDD
         int[] vector_numerico = new int[vector.length];
