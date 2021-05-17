@@ -2,9 +2,6 @@ package modulos;
 
 import controlador.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,8 +26,9 @@ public class registro extends HttpServlet {
         String Apellido = request.getParameter("Apellido");
         String direccion = request.getParameter("direccion");
         String tel= request.getParameter("tel");
-
-        cnp.guardar_datos_usuarios(id, user, pass, nombre, Apellido, direccion, tel);
+        String ip=request.getRemoteAddr();
+        String agente=request.getHeader("user-agent");
+        cnp.guardar_datos_usuarios(id, user, pass, nombre, Apellido, direccion, tel,ip,agente);
          request.setAttribute("id_us", id);
         request.getRequestDispatcher("registor_completo.jsp").forward(request, response);
         

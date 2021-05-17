@@ -17,12 +17,14 @@ public class comprecion_datos {
         this.cc = cc;
     }
     
-    public void datos_log(int id){
+    public void datos_log(int id,String ip,String agente){
+        //guarda el log de inicio de secion
        java.util.Date dt=new java.util.Date();
        java.text.SimpleDateFormat sdf=new  java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
        String hora=sdf.format(dt);
             String Intrucion = "";
-        Intrucion = "INSERT INTO `agenda`.`log_usuario` (`fechaIngreso`,`idUsuario`) VALUES ('"+hora+"',"+id+")";
+        Intrucion = "INSERT INTO `agenda`.`log_usuario` (`fechaIngreso`,`idUsuario`,`createdBy`,`createdAt`,`updatedBy`) "
+                + "VALUES ('"+hora+"',"+id+",'"+ip+"','"+hora+"','"+agente+"'"+")";
         try {
             miStatement = cc.createStatement();
             miStatement.executeUpdate(Intrucion);
@@ -92,11 +94,14 @@ public class comprecion_datos {
         return matris;
     }
 
-    public String guardar_datos_usuarios(int id, String user, String pass, String nombre, String Apellido, String direccion, String tel) {
+    public String guardar_datos_usuarios(int id, String user, String pass, String nombre, String Apellido, String direccion, String tel,String ip,String agente) {
         //guarda los datos de la tabal de usuarios
+       java.util.Date dt=new java.util.Date();
+       java.text.SimpleDateFormat sdf=new  java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+       String hora=sdf.format(dt);
         String Intrucion = "";
-        Intrucion = "INSERT usuario (id,usuario,contrasenia,nombre,Apellido,direccion,celular) "
-                + "VALUES(" + id + ",'" + user + "','" + pass + "','" + nombre + "','" + Apellido + "','" + direccion + "','" + tel + "'" + ")";
+        Intrucion = "INSERT usuario (id,usuario,contrasenia,nombre,Apellido,direccion,celular,createdBy,createdAt,updatedBy) "
+                + "VALUES(" + id + ",'" + user + "','" + pass + "','" + nombre + "','" + Apellido + "','" + direccion + "','" + tel + "','"+ip+"','"+hora+"','"+agente+"')";
         try {
             miStatement = cc.createStatement();
             miStatement.executeUpdate(Intrucion);

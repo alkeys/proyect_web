@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author alexa
  */
 public class comprobacion_usuario extends HttpServlet {
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String user,pass,id_consulta;
@@ -48,9 +47,10 @@ public class comprobacion_usuario extends HttpServlet {
                 verda=false;
             }
         }
-       
        if(verda){
-           cop.datos_log(1);
+           String ip=request.getRemoteAddr();//obtiene la ip
+           String agente=request.getHeader("user-agent");
+           cop.datos_log(id,ip,agente);
            request.getRequestDispatcher("agenda.jsp").forward(request, response);
        }else{
         response.setContentType("text/html;charset=UTF-8");
