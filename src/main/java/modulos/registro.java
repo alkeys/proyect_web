@@ -29,9 +29,9 @@ public class registro extends HttpServlet {
         String Apellido = request.getParameter("Apellido");
         String direccion = request.getParameter("direccion");
         String tel= request.getParameter("tel");
-        request.setAttribute("id_us", id);
-        cnp.guardar_datos_usuarios(id, user, pass, nombre, Apellido, direccion, tel);
 
+        cnp.guardar_datos_usuarios(id, user, pass, nombre, Apellido, direccion, tel);
+         request.setAttribute("id_us", id);
         request.getRequestDispatcher("registor_completo.jsp").forward(request, response);
         
         
