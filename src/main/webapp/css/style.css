@@ -1,0 +1,259 @@
+body{
+    font-family: georgia, times, sans-serif;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.4em;
+    margin: 0;
+    background-image: url(back.jpg);
+    background-position: top center;
+    background-repeat:repeat;
+    background-color: #262626;
+    background-size: 5em;
+}
+
+form{
+    width: 450px;
+    margin: auto;
+    background-color: rgba(94, 94, 94, 0.301);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border-radius: 7px;
+}
+
+label{
+    color: white
+}
+
+#text{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    border-radius: 7px;
+}
+
+
+.text{
+    margin-bottom: 10px;
+    padding: 7px;
+    box-sizing: border-box;
+    border: none;
+    min-width: 20%;
+}
+
+textarea{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    border: none;
+    min-height: 100px;
+    max-height: 200px;
+    min-width: 20%;
+    max-width: 377px;
+}
+
+legend{
+    color: white;
+    margin: 4%
+}
+
+.wrap{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+#enviar1{
+    background: none;
+    border: rgba(204, 204, 204, 0.18) 1px solid;
+	color: white;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 25px 25px 25px 25px;
+	font-size: 15px;
+    transition: all 0.4s linear;
+    cursor: default;
+	text-align: center;
+	width: 75%;
+    list-style: none;
+    padding: 10px 0;
+    margin: 10px
+}
+
+#enviar1:hover{
+    cursor: pointer;
+    background-color: #e9475a;
+	text-decoration: none;
+	color: #000;
+}
+
+#enviar2{
+    background: none;
+    border: rgba(204, 204, 204, 0.18) 1px solid;
+	color: white;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 25px 25px 25px 25px;
+	font-size: 15px;
+    transition: all 0.4s linear;
+    cursor: default;
+	text-align: center;
+	width: 100%;
+    list-style: none;
+    padding: 10px 0;
+    margin: 10px
+}
+
+#enviar2:hover{
+    cursor: pointer;
+    background-color: #7c65fa;
+	text-decoration: none;
+	color: #000;
+}
+
+#div1{
+    float:left;
+    width: 10em;
+    }
+
+#div2{
+    float:right;
+    width: 10em;
+}
+
+#div3{
+    clear:both;
+    text-align: center;
+    width: 360px;
+}
+
+@media (max-width:480px) {
+    form{
+        width: 100%;
+    }
+}
+
+
+h1{
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1.2em;
+    color: #ffffff;
+}
+
+
+h3{
+    color: white;
+    font-size: 1rem;
+    font-family: sans-serif;
+    margin-top: 0;
+}
+
+.container{
+    width: 85%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+
+
+.button{
+	background-attachment: fixed;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	cursor: default;
+	text-align: center;
+	width: 100%;
+	float: left;
+}
+
+.button-button{
+	background-position: center;
+	background-size: cover;
+	border: rgba(204, 204, 204, 0.18) 1px solid;
+	color: #ccc;
+	text-decoration: none;
+    text-align: center;
+	border-radius: 25px 25px 25px 25px;
+	font-size: 15px;
+    width: 75%;
+    position:static;
+    transition: all 0.4s linear;
+}
+
+.button-button:hover{
+	background-color: #EB233C;
+	text-decoration: none;
+	color: #000;
+}
+
+.header{
+    background: #333;
+    color: antiquewhite;
+    padding: 2rem 0;
+    
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+.header a{
+    color: white;
+    text-decoration: none;
+}
+
+
+.logo-nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    letter-spacing: 10px;
+    font-size: 1.3em;
+}
+
+.navigation ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navigation ul li{
+    display: inline-block;
+}
+
+.navigation ul li a{
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear;
+    border-radius: 5px;
+}
+
+.navigation ul li a:hover{
+    background: #4a4a4a;
+}
+
+.main{
+    padding: 12rem;
+}
+
+.footer{
+    color: #bfbfbf;
+    background: #404040;
+    padding: 2rem 5rem;
+    text-align: center;
+}
+
+.footer-logo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 100;
+}
