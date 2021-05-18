@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-<form action="comprobacion_usuario" method="POST">
-    <table border="100" align="center" style="color: aqua; background-color: teal;"> 
-        <tr>
-            <td>
-                <label>usuario</label>
-            </td>
-            <td>
-                <input type="text" name="user">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label>password</label>
-            </td>
-            <td>
-                <input type="password" name="pass">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label>ID</label>
-            </td>
-            <td>
-                <input type="number" name="id">
-            </td>
-        </tr>
-    <tr>
-        <td>
-            <input type="submit" value="enviar">
-        </td>
-    </tr>
-    </table>    
-</form>
-<center>
-    <a href="registro.html">
-    <input type="button" value="registar">
-    </a>
-</center>
-    </body>
+
+<head>
+    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Bienvenido</h1>
+    <form action="comprobacion_usuario" method="POST">
+        <fieldset>
+            <legend>Login</legend>
+            <tr>
+                <td>
+                    <label>Usuario:</label><br>
+                </td>
+                <td>
+                    <input type="text" name="user" placeholder="Digite su usuario" required id="text">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <label>Password:</label>
+                </td>
+                <td>
+                    <input type="password" name="pass" placeholder="Digite su contraseña" required id="text">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <label>ID:</label>
+                </td>
+                <td>
+                    <input type="number" name="id" placeholder="Digite su ID" required id="text">
+                </td>
+            </tr>
+            <div id="div1">
+                <font color="white">¿Aún no tienes cuenta?
+                <a style="color:#66ad5f;" href="registro.html">
+                    Regístrate
+                </a></font>
+            </div>
+            <div id="div2">
+                <input type="submit" value="Iniciar sesión" id="enviar1">
+            </div>
+            <br>
+            <br>
+                <div id="div3">
+                    <input type="reset" value="Limpiar campos" id="enviar2">
+                </div>
+        </fieldset><br>
+    </form>
+    <script type='text/javascript'>
+        document.oncontextmenu = function () { return false }
+    </script>
+</body>
+
 </html>
