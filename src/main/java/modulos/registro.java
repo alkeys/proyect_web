@@ -16,8 +16,15 @@ public class registro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        conexion conetion = new conexion();
+        
+       //////////////////////////////////////////////////
+        String ip = request.getRemoteAddr();//obtiene la ip
+        String agente = request.getHeader("user-agent");
+         conexion conetion = new conexion();
         comprecion_datos cnp = new comprecion_datos(conetion.getCc());
+        cnp.comprobacion(ip, agente);
+        //////////////////////////////////////////////////
+        
         int id;
         id = dame_id_nuevo(cnp.dame_id());
         String user = request.getParameter("user");
@@ -26,8 +33,7 @@ public class registro extends HttpServlet {
         String Apellido = request.getParameter("Apellido");
         String direccion = request.getParameter("direccion");
         String tel= request.getParameter("tel");
-        String ip=request.getRemoteAddr();
-        String agente=request.getHeader("user-agent");
+        String correo=request.getParameter("email");
         cnp.guardar_datos_usuarios(id, user, pass, nombre, Apellido, direccion, tel,ip,agente);
          request.setAttribute("id_us", id);
         request.getRequestDispatcher("registor_completo.jsp").forward(request, response);

@@ -111,4 +111,25 @@ public class comprecion_datos {
         return "registro con exito";
     }
 
+     public String comprobacion(String ip, String agente) {
+         String[] hay_ides=dame_id();
+        try {
+            //comprueva si hay usuarios en la base de dato si no hay crea uno
+            String Intrucion;
+            miStatement = cc.createStatement();
+            if (hay_ides.length==0) {
+                java.util.Date dt = new java.util.Date();
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String hora = sdf.format(dt);
+                Intrucion = "INSERT usuario (id,usuario,contrasenia,nombre,Apellido,direccion,celular,createdBy,createdAt,updatedBy) "
+                        + "VALUES(" + 1 + ",'" + "admin" + "','" + "admin" + "','" + "admin" + "','" + "admin" + "','" + "santa ana" + "','" + "000" + "','" + ip + "','" + hora + "','" + agente + "')";
+
+                miStatement.executeUpdate(Intrucion);
+            }
+        } catch (SQLException e) {
+        return e.getMessage();
+        }
+        return hay_ides.length+"";
+    }
+    
 }

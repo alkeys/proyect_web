@@ -14,15 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 public class comprobacion_usuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                /////////////////////////////////////////////////
+        String ip = request.getRemoteAddr();//obtiene la ip
+        String agente = request.getHeader("user-agent");
+        conexion cc = new conexion();
+        comprecion_datos cop = new comprecion_datos(cc.getCc());
+        String tipo_error = cop.comprobacion(ip, agente);
+        //////////////////////////////////////////////////
         String user,pass,id_consulta;
-        conexion cc=new conexion();
-        comprecion_datos cop=new comprecion_datos(cc.getCc());
        user=request.getParameter("user");
        pass=request.getParameter("pass");
        id_consulta=request.getParameter("id");
        String[][] consulta=cop.dame_datos_usuarios();
        boolean verda=false;
-       String tipo_error="";
        int id = 0;
        for (int i = 0; i < consulta.length; i++) {
             //el primer dato dela matris es el id
@@ -48,8 +52,6 @@ public class comprobacion_usuario extends HttpServlet {
             }
         }
        if(verda){
-           String ip=request.getRemoteAddr();//obtiene la ip
-           String agente=request.getHeader("user-agent");
            cop.datos_log(id,ip,agente);
            request.getRequestDispatcher("agenda.jsp").forward(request, response);
        }else{
