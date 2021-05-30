@@ -83,7 +83,7 @@ public class comprecion_datos {
            int cont=0;
             while (miResultSet.next()) {
              matris[cont][0]=miResultSet.getString("id");
-             matris[cont][1]=miResultSet.getString("usuario");
+             matris[cont][1]=miResultSet.getString("correo");
              matris[cont][2]=miResultSet.getString("contrasenia");
              cont++;
             }
@@ -94,14 +94,14 @@ public class comprecion_datos {
         return matris;
     }
 
-    public String guardar_datos_usuarios(int id, String user, String pass, String nombre, String Apellido, String direccion, String tel,String ip,String agente) {
+    public String guardar_datos_usuarios(int id, String user, String pass, String nombre,String email ,String Apellido, String direccion, String tel,String ip,String agente) {
         //guarda los datos de la tabal de usuarios
        java.util.Date dt=new java.util.Date();
        java.text.SimpleDateFormat sdf=new  java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
        String hora=sdf.format(dt);
         String Intrucion = "";
-        Intrucion = "INSERT usuario (id,usuario,contrasenia,nombre,Apellido,direccion,celular,createdBy,createdAt,updatedBy) "
-                + "VALUES(" + id + ",'" + user + "','" + pass + "','" + nombre + "','" + Apellido + "','" + direccion + "','" + tel + "','"+ip+"','"+hora+"','"+agente+"')";
+        Intrucion = "INSERT usuario (id,usuario,contrasenia,nombre,Apellido,direccion,celular,createdBy,createdAt,updatedBy,correo) "
+                + "VALUES(" + id + ",'" + user + "','" + pass + "','" + nombre + "','" + Apellido + "','" + direccion + "','" + tel + "','"+ip+"','"+hora+"','"+agente+"','"+email+"')";
         try {
             miStatement = cc.createStatement();
             miStatement.executeUpdate(Intrucion);

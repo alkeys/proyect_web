@@ -22,36 +22,27 @@ public class comprobacion_usuario extends HttpServlet {
         String tipo_error = cop.comprobacion(ip, agente);
         //////////////////////////////////////////////////
         String user,pass,id_consulta;
-       user=request.getParameter("user");
-       pass=request.getParameter("pass");
+       user=request.getParameter("user");//correo
+       pass=request.getParameter("pass");//contraseña
        id_consulta=request.getParameter("id");
        String[][] consulta=cop.dame_datos_usuarios();
        boolean verda=false;
        int id = 0;
        for (int i = 0; i < consulta.length; i++) {
-            //el primer dato dela matris es el id
-            if(id_consulta.equals(consulta[i][0])){
-                //segundo dato es usuario
-                if(user.equals(consulta[i][1])){
-                    //3 dato contraseña
-                    if(pass.equals(consulta[i][2])){
-                        verda=true;
-                        id=Integer.parseInt(consulta[i][0]);
-                        break;
-                    }else{
-                        verda=false;
-                        tipo_error="error de contraseña";
-                    }
-                }else{
-                    tipo_error="usuario incorrecto";
-                    verda=false;
-                }
+           if(user.equals(consulta[i][1])){
+            if(pass.equals(consulta[i][2])){
+                verda=true;
+                break;
             }else{
-                tipo_error="id invalido";
-                verda=false;
+                tipo_error="error de contraseña";
             }
+           }else{
+               tipo_error="correo invalido";
+           }
+     
         }
        if(verda){
+           
            cop.datos_log(id,ip,agente);
            request.getRequestDispatcher("agenda.jsp").forward(request, response);
        }else{
@@ -63,8 +54,9 @@ public class comprobacion_usuario extends HttpServlet {
             out.println("<head>");
             out.println("<title>Servlet comprobacion_usuario</title>");            
             out.println("</head>");
-            out.println("<body>");
+            out.println("<center>");
             out.println("<h1>Error " + tipo_error+ "</h1>");
+            out.println("</center>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -34,7 +34,7 @@ public class registro extends HttpServlet {
         String direccion = request.getParameter("direccion");
         String tel= request.getParameter("tel");
         String correo=request.getParameter("email");
-        cnp.guardar_datos_usuarios(id, user, pass, nombre, Apellido, direccion, tel,ip,agente);
+        cnp.guardar_datos_usuarios(id, user, pass, nombre,correo, Apellido, direccion, tel,ip,agente);
          request.setAttribute("id_us", id);
         request.getRequestDispatcher("registor_completo.jsp").forward(request, response);
         

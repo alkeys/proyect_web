@@ -46,6 +46,11 @@
                     <td><%  datos= request.getParameter("direccion");
                         out.print(datos);%></td>
                 </tr>
+                  <tr>
+                    <td><label>telefono:</label></td>
+                    <td><% datos= request.getParameter("email");
+                    out.print(datos);%> </td>
+                </tr>
                 <tr>
                     <td><label>telefono:</label></td>
                     <td><% datos= request.getParameter("tel");
