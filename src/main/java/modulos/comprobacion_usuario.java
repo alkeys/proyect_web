@@ -32,6 +32,7 @@ public class comprobacion_usuario extends HttpServlet {
            if(user.equals(consulta[i][1])){
             if(pass.equals(consulta[i][2])){
                 verda=true;
+               id=Integer.parseInt(consulta[i][0]);
                 break;
             }else{
                 tipo_error="error de contraseña";
@@ -42,8 +43,8 @@ public class comprobacion_usuario extends HttpServlet {
      
         }
        if(verda){
-           
            cop.datos_log(id,ip,agente);
+           request.setAttribute("id_user",id);
            request.getRequestDispatcher("agenda.jsp").forward(request, response);
        }else{
         response.setContentType("text/html;charset=UTF-8");
