@@ -11,24 +11,28 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form action="agenda.jsp" method="GET">
-            <table border="1" width="1" cellspacing="1" align="center">
+             <form action="agenda.jsp" method="GET">
+            <table border="1" width="10" cellspacing="1" align="center">
                 <thead>
                     <tr>
-                        <th><label>selciona la fecha</label><br>
-                            <input type="date" name="fecha">
+                        <th><label>selciona la fecha para borrar dato</label><br>
+                            <input type="date" name="fecha_borrar">
                         </th>
                     </tr>
                     <tr>
-                        <th>
-                            <input type="submit" value="ver" name="dato_agenda_selecionar">
-                        </th>
+                        <td colspan="3">
+                            <center>
+                        <input type="submit" value="borrar" name="valido_borrar_agenda">
+                    </center>
+                    </td>
+                          
+                   <th>
+
+                   </th>
                     </tr>
                 </thead>
-
-
-
             </table>
         </form>
+        
     </body>
 </html>

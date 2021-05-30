@@ -34,25 +34,27 @@ public class fechas_validas {
         for (int i = 0; i < fechas_vector.length; i++) {
             fechas_vector[i] = fechas.get(i);
         }
-
+        fechas=null;
         return fechas_vector;
     }
 
-    public String dame_dato_agenda(String fecha, int id) {
-        String fechas_xd = "";
+    public String[] dame_dato_agenda(String fecha, int id) {
+        ArrayList<String> datos_temp=new ArrayList<>();
         try {
             miStatement = cc.createStatement();
             miResultSet = miStatement.executeQuery("SELECT * FROM `agenda` WHERE idUsaurio='" + id + "' AND " + "fecha='" + fecha + "'");
             while (miResultSet.next()) {
-                fechas_xd += miResultSet.getString("descripcion") + "\t" + "    ";
+                datos_temp.add(miResultSet.getString("descripcion"));
             }
         } catch (SQLException e) {
-            return e.getMessage() + "error XD";
+            return null;
         }
-        if (fechas_xd.equals("")) {
-            fechas_xd = "no hay datos";
+     String[] datos=new String[datos_temp.size()];
+        for (int i = 0; i < datos.length; i++) {
+            datos[i]=datos_temp.get(i);
         }
-        return fechas_xd;
+      datos_temp=null;
+      return datos;
     }
 
     public String dame_nombre_user(int id) {
@@ -90,8 +92,10 @@ public class fechas_validas {
    
     public String borrar(int id,String fecha){
         try {
-            
-        } catch (Exception e) {
+        String Intrucion="DELETE FROM agenda WHERE idUsaurio='"+id+"' AND fecha='"+fecha+"'";
+        miStatement = cc.createStatement();
+        miStatement.executeUpdate(Intrucion);
+        } catch (SQLException e) {
             return e.getMessage();
         }
         return "borrado con exito";
