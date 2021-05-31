@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Bienvenido</h1>
+    <form action="comprobacion_usuario" method="POST">
+        <fieldset>
+            <legend>Login</legend>
+            <tr>
+                <td>
+                    <label>correo:</label><br>
+                </td>
+                <td>
+                    <input type="text" name="user" placeholder="Ingresa tu correo" required id="text">
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <label>Password:</label>
+                </td>
+                <td>
+                    <input type="password" name="pass" placeholder="Digite su contraseña" required id="text">
+                </td>
+            </tr>
+            <br>
+            <tr>
+          
+            </tr>
+            <div id="div1">
+                <font color="white">¿Aún no tienes cuenta?
+                <a style="color:#66ad5f;" href="registro.html">
+                    Regístrate
+                </a></font>
+            </div>
+            <div id="div2">
+                <input type="submit" value="Iniciar sesión" id="enviar1">
+            </div>
+            <br>
+            <br>
+                <div id="div3">
+                    <input type="reset" value="Limpiar campos" id="enviar2">
+                </div>
+        </fieldset><br>
+    </form>
+    <script type='text/javascript'>
+        document.oncontextmenu = function () { return false }
+    </script>
+</body>
+
+</html>
