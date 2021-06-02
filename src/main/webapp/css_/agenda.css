@@ -1,0 +1,46 @@
+
+/* 
+    Author     : Carito Flores
+*/
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+p {
+    font-size: 20px;
+    color:white;
+}
+form{
+    width: 1280px;
+    margin: auto;
+    background-color:#333333;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border-radius: 9px;
+}
+@media (max-width:480px) {
+    form{
+        width: 100%;
+    }
+}
+th{
+    width: 115px;
+    margin-top: 20px;
+    border-radius: 7px;
+    background-color:#cccccc;
+}
+body{
+    font-family: georgia, times, sans-serif;
+    background-color:rgba(14, 13, 13, 0.952);
+}
+table{
+  border:1;
+  width:80%;   
+} 
+legend{
+    color: white;
+    margin: 4%   
+}
+

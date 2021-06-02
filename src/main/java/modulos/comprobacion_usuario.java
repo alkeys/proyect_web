@@ -24,7 +24,6 @@ public class comprobacion_usuario extends HttpServlet {
         String user,pass,id_consulta;
        user=request.getParameter("user");//correo
        pass=request.getParameter("pass");//contraseña
-       id_consulta=request.getParameter("id");
        String[][] consulta=cop.dame_datos_usuarios();
        boolean verda=false;
        int id = 0;
@@ -43,9 +42,16 @@ public class comprobacion_usuario extends HttpServlet {
      
         }
        if(verda){
-           cop.datos_log(id,ip,agente);
+           if(id==1){
+               request.setAttribute("id",id);
+            cop.datos_log(id,ip,agente);
+           request.getRequestDispatcher("UsuariosController").forward(request, response);
+           }else{
+            cop.datos_log(id,ip,agente);
            request.setAttribute("id_user",id);
            request.getRequestDispatcher("agenda.jsp").forward(request, response);
+           }
+
        }else{
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {

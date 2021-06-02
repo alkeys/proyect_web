@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
 <%@page import="modulos.fechas_validas"%>
+<%@page import="modulos.comprecion_datos" %> %>
 <%
 //////////////////////////////////////////////////
     if (request.getParameter("user") != null) {
@@ -111,6 +112,10 @@ area de cuadro de selcionar fecha
 --%>
         <jsp:include page="salir.html"></jsp:include>
         <%    if (request.getParameter("adios") != null) {
+            String ip,agente;
+            ip=request.getRemoteAddr();
+            agente=request.getHeader("user-agent");
+                  poo.datos_log(id_pro, ip, agente);
                 session.invalidate();
                 response.sendRedirect("index.html");
             }

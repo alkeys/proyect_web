@@ -101,6 +101,21 @@ public class fechas_validas {
         return "borrado con exito";
     }
     
+    public void datos_log(int id,String ip,String agente){
+        //guarda el log de inicio de secion
+       java.util.Date dt=new java.util.Date();
+       java.text.SimpleDateFormat sdf=new  java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+       String hora=sdf.format(dt);
+            String Intrucion = "";
+        Intrucion = "INSERT INTO `agenda`.`log_usuario` (`fechaSalida`,`idUsuario`,`createdBy`,`createdAt`,`updatedBy`) "
+                + "VALUES ('"+hora+"',"+id+",'"+ip+"','"+hora+"','"+agente+"'"+")";
+        try {
+            miStatement = cc.createStatement();
+            miStatement.executeUpdate(Intrucion);
+        } catch (SQLException e) {
+        }
+        
+    }
     
     
 }

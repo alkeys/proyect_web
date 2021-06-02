@@ -1,6 +1,7 @@
 package modulos;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,9 +10,9 @@ import java.util.ArrayList;
 
 public class comprecion_datos {
 
-    Connection cc;
-    Statement miStatement;
-    ResultSet miResultSet;
+   private Connection cc;
+   private Statement miStatement;
+   private ResultSet miResultSet;
 
     public comprecion_datos(Connection cc) {
         this.cc = cc;
@@ -116,15 +117,26 @@ public class comprecion_datos {
         try {
             //comprueva si hay usuarios en la base de dato si no hay crea uno
             String Intrucion;
-            miStatement = cc.createStatement();
             if (hay_ides.length==0) {
                 java.util.Date dt = new java.util.Date();
                 java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String hora = sdf.format(dt);
-                Intrucion = "INSERT usuario (id,usuario,contrasenia,nombre,Apellido,direccion,celular,createdBy,createdAt,updatedBy) "
-                        + "VALUES(" + 1 + ",'" + "admin" + "','" + "admin" + "','" + "admin" + "','" + "admin" + "','" + "santa ana" + "','" + "000" + "','" + ip + "','" + hora + "','" + agente + "')";
-
-                miStatement.executeUpdate(Intrucion);
+                Intrucion = "INSERT INTO usuario VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+                PreparedStatement selecion = cc.prepareStatement(Intrucion);
+                selecion.setInt(1, 1);
+                selecion.setString(2, "admin");
+                selecion.setString(3, "admin");
+                selecion.setString(4, "000000");
+                selecion.setString(5, "admin");
+                selecion.setString(6, "admin");
+                selecion.setString(7, "no hay direciones");
+                selecion.setString(8, ip);
+                selecion.setString(9, agente);
+                selecion.setString(10, hora);
+                selecion.setString(11, hora);
+                selecion.setString(12, "admin@admin.com");
+                selecion.executeUpdate();
+                
             }
         } catch (SQLException e) {
         return e.getMessage();
@@ -132,4 +144,23 @@ public class comprecion_datos {
         return hay_ides.length+"";
     }
     
+      public String guardar_datos_agenda(int id, String user, String nombre, String Apellido, String direccion, String tel,String ip,String agente) {
+       
+       java.util.Date dt=new java.util.Date();
+       java.text.SimpleDateFormat sdf=new  java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+       String hora=sdf.format(dt);
+       String descripcion=user;
+        String Intrucion = "";
+        Intrucion = "INSERT usuario (id,usuario,nombre,Apellido,direccion,celular,createdBy,createdAt,updatedBy) "
+                + "VALUES(" + id + ",'" + descripcion + "','" +  nombre + "','" + Apellido + "','" + direccion + "','" + tel + "','"+ip+"','"+hora+"','"+agente+"')";
+        try {
+            miStatement = cc.createStatement();
+            miStatement.executeUpdate(Intrucion);
+        } catch (SQLException e) {
+            return e.getMessage();
+        }
+        return "registro con exito";
+    }
+    
+     
 }

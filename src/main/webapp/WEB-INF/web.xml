@@ -8,6 +8,10 @@
         <servlet-name>comprobacion_usuario</servlet-name>
         <servlet-class>modulos.comprobacion_usuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsuariosController</servlet-name>
+        <servlet-class>UsuariosController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registro</servlet-name>
         <url-pattern>/registro</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>comprobacion_usuario</servlet-name>
         <url-pattern>/comprobacion_usuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuariosController</servlet-name>
+        <url-pattern>/UsuariosController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
