@@ -33,8 +33,10 @@ public class UsuariosController extends HttpServlet {
             dispatcher = request.getRequestDispatcher("admin.jsp");
             List<Usuarios> listaUsuarios = usuariosSI.listarUsuarios();
             request.setAttribute("lista", listaUsuarios);
-        } else if ("insertar".equals(accion)) {
-
+        } else if ("salir".equals(accion)) {   
+            
+            dispatcher =request.getRequestDispatcher("salida.jsp");
+         
         } else if ("cambiar".equals(accion)) {
             dispatcher = request.getRequestDispatcher("cambiar.jsp");
             int id = Integer.parseInt(request.getParameter("id"));
@@ -71,9 +73,9 @@ public class UsuariosController extends HttpServlet {
                 miPreparedStatement.setString(9, request.getParameter("createdAt"));
                 miPreparedStatement.setString(10, request.getParameter("updatedAt"));
                 miPreparedStatement.setString(11, request.getParameter("email"));
-                String id_aux=request.getParameter("id");
-                int id_temp=Integer.parseInt(id_aux);
-                miPreparedStatement.setInt(12,id_temp );
+                String id_aux = request.getParameter("id");
+                int id_temp = Integer.parseInt(id_aux);
+                miPreparedStatement.setInt(12, id_temp);
                 miPreparedStatement.executeUpdate();
             } catch (SQLException e) {
             }
@@ -83,7 +85,7 @@ public class UsuariosController extends HttpServlet {
             request.setAttribute("lista", listaUsuarios);
 
         } else if ("borrar".equals(accion)) {
-            String id_aux=request.getParameter("id");
+            String id_aux = request.getParameter("id");
             int id = Integer.parseInt(id_aux);
             usuariosSI.borrar(id);
             dispatcher = request.getRequestDispatcher("admin.jsp");

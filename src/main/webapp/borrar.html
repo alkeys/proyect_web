@@ -7,32 +7,39 @@ and open the template in the editor.
 <html>
     <head>
         <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=UTF-8">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>
     <body>
-             <form action="agenda.jsp" method="GET">
-            <table border="1" width="10" cellspacing="1" align="center">
-                <thead>
-                    <tr>
-                        <th><label>selciona la fecha para borrar dato</label><br>
-                            <input type="date" name="fecha_borrar">
-                        </th>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            <center>
-                        <input type="submit" value="borrar" name="valido_borrar_agenda">
-                    </center>
-                    </td>
-                          
-                   <th>
+        <div class="grid grid-cols-8 gap-2 my-2">
+            <div>
+            </div>
 
-                   </th>
-                    </tr>
-                </thead>
-            </table>
-        </form>
-        
+            <div class="py-2 px-4 col-span-6 border-2 border-green-500 rounded-br-lg rounded-tl-lg">
+                <form action="agenda.jsp" method="GET">
+                    <label class="italic font-normal">Selecciona la fecha para borrar dato</label>
+                    <div
+                        class="bg-red-400 bg-opacity-25 border border-solid focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent rounded-lg shadow-md">
+                        <input class="bg-transparent" type="date" name="fecha_borrar">
+                    </div>
+                    <br>
+                    <div class="grid grid-cols-9 gap-2 my-2">
+                        <div class="col-span-3"></div>
+                        <div class="col-span-3 bg-red-500 hover:bg-red-700 text-white py-2 px-4 font-semibold rounded-lg shadow-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <input class="capitalize text-white bg-red-500 bg-opacity-0" type="submit" value="borrar" name="valido_borrar_agenda">
+                        </div>
+                        <div class="col-span-3"></div>
+                    </div>
+                </form>
+            </div>
+
+            <div>
+            </div>
+        </div>
     </body>
 </html>

@@ -43,13 +43,9 @@
                         <c:forEach var="usuario" items="${lista}">
                             <tr>
                                 <th><c:out value="${usuario.descripcion}"/></th> 
-                             
                                 <th><c:out value="${usuario.nombre}"/></th>
-                               
                                 <th><c:out value="${usuario.apellido}"/></th>
-                                
-                                  <th><c:out value="${usuario.password}"/></th>
-                                 
+                                <th><c:out value="${usuario.password}"/></th>
                                 <th><c:out value="${usuario.celular}"/></th> 
                                 <th><c:out value="${usuario.direccion}"/></th>
                                 <th><c:out value="${usuario.createdBy}"/></th> 
@@ -58,9 +54,9 @@
                                 <th><c:out value="${usuario.updatedAt}"/></th>
                                 <th style="background-color:#000;"><a style="color:white;" href="UsuariosController?accion=cambiar&id=<c:out value="${usuario.id}"/>">CAMBIAR DATOS</th>
                                 <th style="background-color:#000;"><a style="color:white;" href="UsuariosController?accion=borrar&id=<c:out value="${usuario.id}"/>">BORRAR REGISTRO</th>
-
                             </c:forEach>
                             </fieldset>
+            <th style="background-color:#000;"><a style="color:white;" href="UsuariosController?accion=salir&id=<c:out value="${usuario.id}"/>">SALIR</th>
                             </form>
                     </tbody>
                 </table>

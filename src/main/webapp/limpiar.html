@@ -7,12 +7,33 @@ and open the template in the editor.
 <html>
     <head>
         <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=UTF-8">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>
     <body>
-               <form action="agenda.jsp" method="GET" >
-            <input type="submit" value="limpiar" name="limpio">
-        </form>
+            <div>
+                
+            </div>
+
+            <div class="py-2 px-4 col-span-6 rounded-br-lg rounded-tl-lg">
+                <form action="agenda.jsp" method="GET" >
+                    <div class="grid grid-cols-15 gap-2 my-2">
+                        <div class="col-span-3"></div>
+                        
+                        <div class="col-span-3 bg-red-700 hover:bg-red-900 text-white py-2 px-4 font-semibold rounded-lg shadow-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            <input class="capitalize text-white bg-red-500 bg-opacity-0" type="submit" value="limpiar los campos" name="limpio">
+                        </div>
+                        
+                        <div class="col-span-3"></div>
+                    </div>
+                </form>
+            </div>
+
+            <div></div>
     </body>
 </html>

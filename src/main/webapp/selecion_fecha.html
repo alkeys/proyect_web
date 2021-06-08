@@ -7,28 +7,24 @@ and open the template in the editor.
 <html>
     <head>
         <title>TODO supply a title</title>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="container mx-auto mt-5 text-center">
         <form action="agenda.jsp" method="GET">
-            <table border="1" width="1" cellspacing="1" align="center">
-                <thead>
-                    <tr>
-                        <th><label>selciona la fecha</label><br>
-                            <input type="date" name="fecha">
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>
-                            <input type="submit" value="ver" name="dato_agenda_selecionar">
-                        </th>
-                    </tr>
-                </thead>
+            <div class="py-2 px-4 col-span-3 border-2 border-green-500 rounded-br-lg rounded-tl-lg">
 
-
-
-            </table>
+                <label class="italic font-normal">Selecciona la fecha</label>
+                <div
+                    class="bg-red-400 bg-opacity-25 border border-solid focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent rounded-lg shadow-md">
+                    <input class="bg-transparent" type="date" name="fecha">
+                </div>
+                <br>
+                
+                <input class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 font-semibold rounded-lg shadow-md" type="submit" value="Ver" name="dato_agenda_selecionar">
+            </div>
         </form>
     </body>
 </html>
